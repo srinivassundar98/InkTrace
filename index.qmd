@@ -93,11 +93,3 @@ o	The headline results are stored in new columns called “headline_emotion” a
 
 
 
-# Team members
-
-Describe here each group member (netid and name).
-
-- ss4805, Srinivasaraghavan Sundar
-- sg2057, Shruthi Nanditha Ganesh
-- ns1590, Nikitha Sunku
-- np1010,Nikita Patil
