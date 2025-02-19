@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Project Group 1</title>
+<title>dw_model_training – Project Group 1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -69,10 +69,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-75fb367c5d51c42ff50931c5402632e6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -126,13 +126,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -157,9 +157,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Data Wrangling: retrieval</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -186,9 +186,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Data Wrangling: enrichment/cleaning</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -215,9 +215,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Backups</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -238,9 +238,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Data Wrangling: Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -267,9 +267,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text">Data Wrangling: Communicating results</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -296,9 +296,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">Project and software dev</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -343,11 +343,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
@@ -356,7 +356,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Text Classification with Naive Bayes</p>
-<div id="cell-2" class="cell" data-execution_count="17">
+<div id="cell-2" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> TfidfVectorizer</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> ColumnTransformer</span>
@@ -387,10 +387,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Training and prediction</span></span>
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-3" class="cell" data-execution_count="18">
+<div id="cell-3" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(df.drop(<span class="st">'AUTHOR'</span>, axis<span class="op">=</span><span class="dv">1</span>), df[<span class="st">'AUTHOR'</span>], test_size<span class="op">=</span><span class="fl">0.3</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-4" class="cell" data-execution_count="19">
+<div id="cell-4" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pipeline.fit(X_train, y_train)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> pipeline.predict(X_test)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(classification_report(y_test, y_pred))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -538,7 +538,7 @@ The Associated Press       0.92      0.89      0.90      1510
 </code></pre>
 </div>
 </div>
-<div id="cell-11" class="cell" data-execution_count="40">
+<div id="cell-11" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>author_counts <span class="op">=</span> df[<span class="st">'AUTHOR'</span>].value_counts()</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter to get the top 5 authors</span></span>
@@ -558,38 +558,37 @@ The Associated Press       0.92      0.89      0.90      1510
 <span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co"># # Show the plot</span></span>
 <span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co"># fig.show()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-12" class="cell" data-execution_count="41">
+<div id="cell-12" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>top_authors <span class="op">=</span> author_counts.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-13" class="cell" data-execution_count="42">
+<div id="cell-13" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>top_authors</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="42">
-<pre><code>AUTHOR
-WIRED Staff             15815
-Associated Press         9215
-Field Level Media        7930
-John Bowden              7021
-The Associated Press     6432
-Rebecca Savransky        5822
-Julia Manchester         5448
-People Staff             5393
-Axios                    5275
-Dave Quinn               5017
-Name: count, dtype: int64</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>Field Level Media       5019
+Rebecca Savransky       5019
+John Bowden             5019
+Julia Manchester        5017
+Dave Quinn              5013
+WIRED Staff             5010
+The Associated Press    5001
+Axios                   4938
+People Staff            4735
+Associated Press        3235
+Name: AUTHOR, dtype: int64</code></pre>
 </div>
 </div>
-<div id="cell-14" class="cell" data-execution_count="43">
+<div id="cell-14" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming 'df' is your original DataFrame</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>top_authors_df <span class="op">=</span> df2[df2[<span class="st">'AUTHOR'</span>].isin(top_authors.index)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>top_authors_df <span class="op">=</span> df[df[<span class="st">'AUTHOR'</span>].isin(top_authors.index)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-15" class="cell" data-execution_count="44">
+<div id="cell-15" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group by 'AUTHOR' and apply the head() function to limit to 200 entries per author</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>downsampled_df <span class="op">=</span> top_authors_df.groupby(<span class="st">'AUTHOR'</span>).head(<span class="dv">5017</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-16" class="cell" data-execution_count="45">
+<div id="cell-16" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(downsampled_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="45">
-<pre><code>50170</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>48000</code></pre>
 </div>
 </div>
 <div id="cell-17" class="cell" data-execution_count="46">
@@ -1023,7 +1022,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</a></style><div id="sk-container-id-5" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>MultinomialNB()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox" checked=""><label for="sk-estimator-id-7" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;MultinomialNB<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.naive_bayes.MultinomialNB.html">?<span>Documentation for MultinomialNB</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>MultinomialNB()</pre></div> </div></div></div></div>
+</style><div id="sk-container-id-5" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>MultinomialNB()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox" checked=""><label for="sk-estimator-id-7" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;MultinomialNB<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.naive_bayes.MultinomialNB.html">?<span>Documentation for MultinomialNB</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>MultinomialNB()</pre></div> </div></div></div></div>
 </div>
 </div>
 <div id="cell-22" class="cell" data-execution_count="51">
@@ -1576,7 +1575,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</a></style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>MultinomialNB()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;MultinomialNB<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.naive_bayes.MultinomialNB.html">?<span>Documentation for MultinomialNB</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>MultinomialNB()</pre></div> </div></div></div></div>
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>MultinomialNB()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;MultinomialNB<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.naive_bayes.MultinomialNB.html">?<span>Documentation for MultinomialNB</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>MultinomialNB()</pre></div> </div></div></div></div>
 </div>
 </div>
 <div id="cell-33" class="cell" data-execution_count="21">
@@ -2059,7 +2058,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</a></style><div id="sk-container-id-9" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>SVC(random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-13" type="checkbox" checked=""><label for="sk-estimator-id-13" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;SVC<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.svm.SVC.html">?<span>Documentation for SVC</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>SVC(random_state=42)</pre></div> </div></div></div></div>
+</style><div id="sk-container-id-9" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>SVC(random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-13" type="checkbox" checked=""><label for="sk-estimator-id-13" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;SVC<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.svm.SVC.html">?<span>Documentation for SVC</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>SVC(random_state=42)</pre></div> </div></div></div></div>
 </div>
 </div>
 <div id="cell-38" class="cell" data-execution_count="73">
@@ -2096,7 +2095,7 @@ The Associated Press       0.68      0.63      0.65      1553
 <pre><code>Accuracy: 87.04%</code></pre>
 </div>
 </div>
-<div id="cell-40" class="cell" data-execution_count="75">
+<div id="cell-40" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>downsampled_df.to_csv(<span class="st">'DOWNSAMPLED_10_AUTHORS.csv'</span>,index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-41" class="cell" data-execution_count="77">
@@ -2181,8 +2180,14 @@ The Associated Press       0.68      0.63      0.65      1553
 <span id="cb58-47"><a href="#cb58-47" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(features, labels, test_size<span class="op">=</span><span class="fl">0.3</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb58-48"><a href="#cb58-48" aria-hidden="true" tabindex="-1"></a>history<span class="op">=</span>model.fit(X_train, y_train, epochs<span class="op">=</span><span class="dv">100</span>, validation_data<span class="op">=</span>(X_test, y_test),callbacks<span class="op">=</span>[early_stopping])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Epoch 1/100
-1051/1051 ━━━━━━━━━━━━━━━━━━━━ 126s 118ms/step - accuracy: 0.4248 - loss: 1.5352 - val_accuracy: 0.5505 - val_loss: 1.0185
+<pre><code>Epoch 1/100</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>c:\Users\srinivas\anaconda3\Lib\site-packages\keras\src\layers\core\embedding.py:90: UserWarning: Argument `input_length` is deprecated. Just remove it.
+  warnings.warn(</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1051/1051 ━━━━━━━━━━━━━━━━━━━━ 126s 118ms/step - accuracy: 0.4248 - loss: 1.5352 - val_accuracy: 0.5505 - val_loss: 1.0185
 Epoch 2/100
 1051/1051 ━━━━━━━━━━━━━━━━━━━━ 130s 124ms/step - accuracy: 0.5445 - loss: 1.0246 - val_accuracy: 0.5540 - val_loss: 0.9965
 Epoch 3/100
@@ -2382,13 +2387,9 @@ Epoch 99/100
 Epoch 100/100
 1051/1051 ━━━━━━━━━━━━━━━━━━━━ 129s 123ms/step - accuracy: 0.9482 - loss: 0.1624 - val_accuracy: 0.8898 - val_loss: 0.3623</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>c:\Users\srinivas\anaconda3\Lib\site-packages\keras\src\layers\core\embedding.py:90: UserWarning: Argument `input_length` is deprecated. Just remove it.
-  warnings.warn(</code></pre>
-</div>
 </div>
 <div id="cell-47" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install pydot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install pydot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Collecting pydot
   Obtaining dependency information for pydot from https://files.pythonhosted.org/packages/7f/90/c9b51f3cdff89cd8f93382060330f43d1af098a6624cff439e700791e922/pydot-2.0.0-py3-none-any.whl.metadata
@@ -2400,10 +2401,10 @@ Successfully installed pydot-2.0.0</code></pre>
 </div>
 </div>
 <div id="cell-48" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.utils <span class="im">import</span> plot_model</span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate a plot of your model</span></span>
-<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>plot_model(model, to_file<span class="op">=</span><span class="st">'model_plot.png'</span>, show_shapes<span class="op">=</span><span class="va">True</span>, show_layer_names<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.utils <span class="im">import</span> plot_model</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate a plot of your model</span></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>plot_model(model, to_file<span class="op">=</span><span class="st">'model_plot.png'</span>, show_shapes<span class="op">=</span><span class="va">True</span>, show_layer_names<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 <figure class="figure">
@@ -2415,82 +2416,82 @@ Successfully installed pydot-2.0.0</code></pre>
 <p>Training and Validation Loss Visualization</p>
 <p>This plot displays the training and validation loss over epochs during the training of the author classification model using LSTM. It helps in monitoring the model’s performance and detecting overfitting or underfitting.</p>
 <div id="cell-50" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create traces</span></span>
-<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>trace1 <span class="op">=</span> go.Scatter(</span>
-<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(model.history.history[<span class="st">'loss'</span>]) <span class="op">+</span> <span class="dv">1</span>)),</span>
-<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>model.history.history[<span class="st">'loss'</span>],</span>
-<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a>    mode<span class="op">=</span><span class="st">'lines+markers'</span>,</span>
-<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">'Training Loss'</span></span>
-<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a>trace2 <span class="op">=</span> go.Scatter(</span>
-<span id="cb64-11"><a href="#cb64-11" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(model.history.history[<span class="st">'val_loss'</span>]) <span class="op">+</span> <span class="dv">1</span>)),</span>
-<span id="cb64-12"><a href="#cb64-12" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>model.history.history[<span class="st">'val_loss'</span>],</span>
-<span id="cb64-13"><a href="#cb64-13" aria-hidden="true" tabindex="-1"></a>    mode<span class="op">=</span><span class="st">'lines+markers'</span>,</span>
-<span id="cb64-14"><a href="#cb64-14" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">'Validation Loss'</span></span>
-<span id="cb64-15"><a href="#cb64-15" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb64-16"><a href="#cb64-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-17"><a href="#cb64-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the figure</span></span>
-<span id="cb64-18"><a href="#cb64-18" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure(data<span class="op">=</span>[trace1, trace2])</span>
-<span id="cb64-19"><a href="#cb64-19" aria-hidden="true" tabindex="-1"></a>fig.update_layout(title<span class="op">=</span><span class="st">'Training and Validation Loss'</span>,</span>
-<span id="cb64-20"><a href="#cb64-20" aria-hidden="true" tabindex="-1"></a>                  xaxis_title<span class="op">=</span><span class="st">'Epochs'</span>,</span>
-<span id="cb64-21"><a href="#cb64-21" aria-hidden="true" tabindex="-1"></a>                  yaxis_title<span class="op">=</span><span class="st">'Loss'</span>,</span>
-<span id="cb64-22"><a href="#cb64-22" aria-hidden="true" tabindex="-1"></a>                  template<span class="op">=</span><span class="st">'plotly_dark'</span>)</span>
-<span id="cb64-23"><a href="#cb64-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-24"><a href="#cb64-24" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create traces</span></span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>trace1 <span class="op">=</span> go.Scatter(</span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(model.history.history[<span class="st">'loss'</span>]) <span class="op">+</span> <span class="dv">1</span>)),</span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>model.history.history[<span class="st">'loss'</span>],</span>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>    mode<span class="op">=</span><span class="st">'lines+markers'</span>,</span>
+<span id="cb65-8"><a href="#cb65-8" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">'Training Loss'</span></span>
+<span id="cb65-9"><a href="#cb65-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb65-10"><a href="#cb65-10" aria-hidden="true" tabindex="-1"></a>trace2 <span class="op">=</span> go.Scatter(</span>
+<span id="cb65-11"><a href="#cb65-11" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(model.history.history[<span class="st">'val_loss'</span>]) <span class="op">+</span> <span class="dv">1</span>)),</span>
+<span id="cb65-12"><a href="#cb65-12" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>model.history.history[<span class="st">'val_loss'</span>],</span>
+<span id="cb65-13"><a href="#cb65-13" aria-hidden="true" tabindex="-1"></a>    mode<span class="op">=</span><span class="st">'lines+markers'</span>,</span>
+<span id="cb65-14"><a href="#cb65-14" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">'Validation Loss'</span></span>
+<span id="cb65-15"><a href="#cb65-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb65-16"><a href="#cb65-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-17"><a href="#cb65-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the figure</span></span>
+<span id="cb65-18"><a href="#cb65-18" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure(data<span class="op">=</span>[trace1, trace2])</span>
+<span id="cb65-19"><a href="#cb65-19" aria-hidden="true" tabindex="-1"></a>fig.update_layout(title<span class="op">=</span><span class="st">'Training and Validation Loss'</span>,</span>
+<span id="cb65-20"><a href="#cb65-20" aria-hidden="true" tabindex="-1"></a>                  xaxis_title<span class="op">=</span><span class="st">'Epochs'</span>,</span>
+<span id="cb65-21"><a href="#cb65-21" aria-hidden="true" tabindex="-1"></a>                  yaxis_title<span class="op">=</span><span class="st">'Loss'</span>,</span>
+<span id="cb65-22"><a href="#cb65-22" aria-hidden="true" tabindex="-1"></a>                  template<span class="op">=</span><span class="st">'plotly_dark'</span>)</span>
+<span id="cb65-23"><a href="#cb65-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-24"><a href="#cb65-24" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
 </div>
 </div>
 <div id="cell-51" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create traces</span></span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>trace1 <span class="op">=</span> go.Scatter(</span>
-<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(model.history.history[<span class="st">'accuracy'</span>]) <span class="op">+</span> <span class="dv">1</span>)),</span>
-<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>model.history.history[<span class="st">'accuracy'</span>],</span>
-<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>    mode<span class="op">=</span><span class="st">'lines+markers'</span>,</span>
-<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">'Training Accuracy'</span></span>
-<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a>trace2 <span class="op">=</span> go.Scatter(</span>
-<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(model.history.history[<span class="st">'val_accuracy'</span>]) <span class="op">+</span> <span class="dv">1</span>)),</span>
-<span id="cb66-10"><a href="#cb66-10" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>model.history.history[<span class="st">'val_accuracy'</span>],</span>
-<span id="cb66-11"><a href="#cb66-11" aria-hidden="true" tabindex="-1"></a>    mode<span class="op">=</span><span class="st">'lines+markers'</span>,</span>
-<span id="cb66-12"><a href="#cb66-12" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">'Validation Accuracy'</span></span>
-<span id="cb66-13"><a href="#cb66-13" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb66-14"><a href="#cb66-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-15"><a href="#cb66-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the figure</span></span>
-<span id="cb66-16"><a href="#cb66-16" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure(data<span class="op">=</span>[trace1, trace2])</span>
-<span id="cb66-17"><a href="#cb66-17" aria-hidden="true" tabindex="-1"></a>fig.update_layout(title<span class="op">=</span><span class="st">'Training and Validation Accuracy'</span>,</span>
-<span id="cb66-18"><a href="#cb66-18" aria-hidden="true" tabindex="-1"></a>                  xaxis_title<span class="op">=</span><span class="st">'Epochs'</span>,</span>
-<span id="cb66-19"><a href="#cb66-19" aria-hidden="true" tabindex="-1"></a>                  yaxis_title<span class="op">=</span><span class="st">'Accuracy'</span>,</span>
-<span id="cb66-20"><a href="#cb66-20" aria-hidden="true" tabindex="-1"></a>                  template<span class="op">=</span><span class="st">'plotly_dark'</span>)</span>
-<span id="cb66-21"><a href="#cb66-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-22"><a href="#cb66-22" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create traces</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>trace1 <span class="op">=</span> go.Scatter(</span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(model.history.history[<span class="st">'accuracy'</span>]) <span class="op">+</span> <span class="dv">1</span>)),</span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>model.history.history[<span class="st">'accuracy'</span>],</span>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>    mode<span class="op">=</span><span class="st">'lines+markers'</span>,</span>
+<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">'Training Accuracy'</span></span>
+<span id="cb67-7"><a href="#cb67-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb67-8"><a href="#cb67-8" aria-hidden="true" tabindex="-1"></a>trace2 <span class="op">=</span> go.Scatter(</span>
+<span id="cb67-9"><a href="#cb67-9" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(model.history.history[<span class="st">'val_accuracy'</span>]) <span class="op">+</span> <span class="dv">1</span>)),</span>
+<span id="cb67-10"><a href="#cb67-10" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>model.history.history[<span class="st">'val_accuracy'</span>],</span>
+<span id="cb67-11"><a href="#cb67-11" aria-hidden="true" tabindex="-1"></a>    mode<span class="op">=</span><span class="st">'lines+markers'</span>,</span>
+<span id="cb67-12"><a href="#cb67-12" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">'Validation Accuracy'</span></span>
+<span id="cb67-13"><a href="#cb67-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb67-14"><a href="#cb67-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-15"><a href="#cb67-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the figure</span></span>
+<span id="cb67-16"><a href="#cb67-16" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure(data<span class="op">=</span>[trace1, trace2])</span>
+<span id="cb67-17"><a href="#cb67-17" aria-hidden="true" tabindex="-1"></a>fig.update_layout(title<span class="op">=</span><span class="st">'Training and Validation Accuracy'</span>,</span>
+<span id="cb67-18"><a href="#cb67-18" aria-hidden="true" tabindex="-1"></a>                  xaxis_title<span class="op">=</span><span class="st">'Epochs'</span>,</span>
+<span id="cb67-19"><a href="#cb67-19" aria-hidden="true" tabindex="-1"></a>                  yaxis_title<span class="op">=</span><span class="st">'Accuracy'</span>,</span>
+<span id="cb67-20"><a href="#cb67-20" aria-hidden="true" tabindex="-1"></a>                  template<span class="op">=</span><span class="st">'plotly_dark'</span>)</span>
+<span id="cb67-21"><a href="#cb67-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-22"><a href="#cb67-22" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
 </div>
 </div>
 <p>Confusion Matrix</p>
 <div id="cell-53" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.figure_factory <span class="im">as</span> ff</span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict classes to compute confusion matrix</span></span>
-<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X_test)</span>
-<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>y_pred_classes <span class="op">=</span> np.argmax(y_pred, axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Confusion Matrix</span></span>
-<span id="cb68-10"><a href="#cb68-10" aria-hidden="true" tabindex="-1"></a>cm <span class="op">=</span> confusion_matrix(y_test, y_pred_classes)</span>
-<span id="cb68-11"><a href="#cb68-11" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="bu">len</span>(np.unique(y_test))))  <span class="co"># Adjust as per your labels</span></span>
-<span id="cb68-12"><a href="#cb68-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-13"><a href="#cb68-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a heatmap from the confusion matrix</span></span>
-<span id="cb68-14"><a href="#cb68-14" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ff.create_annotated_heatmap(z<span class="op">=</span>cm, x<span class="op">=</span>labels, y<span class="op">=</span>labels, colorscale<span class="op">=</span><span class="st">'Viridis'</span>)</span>
-<span id="cb68-15"><a href="#cb68-15" aria-hidden="true" tabindex="-1"></a>fig.update_layout(title<span class="op">=</span><span class="st">'Confusion Matrix'</span>,</span>
-<span id="cb68-16"><a href="#cb68-16" aria-hidden="true" tabindex="-1"></a>                  xaxis_title<span class="op">=</span><span class="st">'Predicted Label'</span>,</span>
-<span id="cb68-17"><a href="#cb68-17" aria-hidden="true" tabindex="-1"></a>                  yaxis_title<span class="op">=</span><span class="st">'True Label'</span>,</span>
-<span id="cb68-18"><a href="#cb68-18" aria-hidden="true" tabindex="-1"></a>                  template<span class="op">=</span><span class="st">'plotly_dark'</span>)</span>
-<span id="cb68-19"><a href="#cb68-19" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.figure_factory <span class="im">as</span> ff</span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict classes to compute confusion matrix</span></span>
+<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X_test)</span>
+<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a>y_pred_classes <span class="op">=</span> np.argmax(y_pred, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-9"><a href="#cb69-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Confusion Matrix</span></span>
+<span id="cb69-10"><a href="#cb69-10" aria-hidden="true" tabindex="-1"></a>cm <span class="op">=</span> confusion_matrix(y_test, y_pred_classes)</span>
+<span id="cb69-11"><a href="#cb69-11" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="bu">len</span>(np.unique(y_test))))  <span class="co"># Adjust as per your labels</span></span>
+<span id="cb69-12"><a href="#cb69-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-13"><a href="#cb69-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a heatmap from the confusion matrix</span></span>
+<span id="cb69-14"><a href="#cb69-14" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ff.create_annotated_heatmap(z<span class="op">=</span>cm, x<span class="op">=</span>labels, y<span class="op">=</span>labels, colorscale<span class="op">=</span><span class="st">'Viridis'</span>)</span>
+<span id="cb69-15"><a href="#cb69-15" aria-hidden="true" tabindex="-1"></a>fig.update_layout(title<span class="op">=</span><span class="st">'Confusion Matrix'</span>,</span>
+<span id="cb69-16"><a href="#cb69-16" aria-hidden="true" tabindex="-1"></a>                  xaxis_title<span class="op">=</span><span class="st">'Predicted Label'</span>,</span>
+<span id="cb69-17"><a href="#cb69-17" aria-hidden="true" tabindex="-1"></a>                  yaxis_title<span class="op">=</span><span class="st">'True Label'</span>,</span>
+<span id="cb69-18"><a href="#cb69-18" aria-hidden="true" tabindex="-1"></a>                  template<span class="op">=</span><span class="st">'plotly_dark'</span>)</span>
+<span id="cb69-19"><a href="#cb69-19" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>451/451 ━━━━━━━━━━━━━━━━━━━━ 18s 39ms/step</code></pre>
 </div>
@@ -2537,18 +2538,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -2580,7 +2570,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -2588,7 +2598,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -2685,7 +2695,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
