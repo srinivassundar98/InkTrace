@@ -1,5 +1,0 @@
----
-title: "19: python package (optional)"
----
-
-As there were no general functions in our application that required to be made available to outside users, we decided against building a Python package for it. The functionality of our project is designed to meet our unique requirements for data collection, processing, and analysis; no stand-alone features exist that would profit from packaging for wider application. As a result, we concentrated on creating and improving our project pipeline's essential features.
