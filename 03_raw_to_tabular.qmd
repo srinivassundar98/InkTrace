@@ -1,0 +1,20 @@
+---
+title: "3: From raw to tabular data"
+---
+
+In order to manage our project's diverse datasets effectively, we employed the pandas package to convert them into structured dataframes and subsequently saved them as CSV files. Our data retrieval process involved various methods tailored to the format of each dataset:
+
+SQLite Database (All the News 1.0):
+To retrieve data from the SQLite database containing All the News 1.0, we utilized the pd.read_sql_query() method. This method allowed us to query the database directly and convert the results into a pandas dataframe.
+
+DataFrame Creation and CSV Saving:
+Leveraging the capabilities of pandas, we converted the list of dictionaries into a pandas DataFrame. This DataFrame served as the foundation for our data analysis and manipulation.
+Finally, we saved the DataFrame as a CSV file using the to_csv() method, ensuring that the dataset is easily accessible and shareable for further analysis.
+
+JSON Files (News Category Dataset):
+For datasets stored in JSON format, like the News Category Dataset, we employed the pd.read_json() method. After reading each JSON file into a dataframe, we concatenated all the dataframes into one comprehensive dataframe representing the combined dataset.
+This process enabled us to handle JSON data efficiently and integrate it seamlessly into our analysis pipeline.
+
+
+
+

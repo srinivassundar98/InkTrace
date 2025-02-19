@@ -1,0 +1,103 @@
+---
+title: "Data Mavericks"
+---
+
+
+## Abstract:
+Our project analyzes features such as headlines, article content, and the emotions and sentiments expressed. We aim to identify unique writing styles and thematic preferences among journalists and media outlets. By developing a predictive model using deep learning techniques, we seek to ascertain the authorship of news articles. This approach will significantly enhance content personalization and provide deeper insights into media biases and reporting styles
+
+### 1. Documenting data sources
+
+#### Datasets Used:
+
+1.	All the News Dataset: https://components.one/datasets/all-the-news-2-news-articles-dataset
+
+a.	The "All the News 2.0" dataset contains 2.7 million news articles and essays from 27 American publications, dating from January 1, 2016, to April 2, 2020. The raw data is formatted with fields for date, year, month, day, author, title, article text, URL, section, and publication. The dataset, updated last on July 9, 2022, is available as a CSV file and does not indicate ongoing updates beyond this point
+
+2.	All the News 1.0: https://components.one/datasets/all-the-news-articles-dataset
+
+a.	The "All the News 1.0" dataset features 204,135 articles from 18 American publications, primarily spanning from 2013 to early 2018. The data includes fields such as date, title, publication, article text, and URL, where available. It's formatted as a SQLite database, about 1.5 GB in size, and was last updated on January 19, 2019
+
+3.	News Category Dataset: https://www.kaggle.com/datasets/rmisra/news-category-dataset
+
+a.	The News Category Dataset on Kaggle consists of around 200,000 news headlines from the year 2012 to 2018, categorized into 41 categories. Each record includes attributes like the category, headline, authors, link, and a short description. The dataset, sourced from HuffPost, is stored in JSON format and aims to facilitate news category classification and other natural language processing tasks.
+
+
+### 2. Retrieval of the raw data
+
+1. We utilized the Kaggle api to write a script to get the news category dataset using an API call.
+
+2. As for the All the news 1.0 and 2.0 datasets, we directly downloaded the sqlite and csv files from the website. 
+
+### 3. From raw data to tidy tabular data in pandas
+
+By using the pandas package, we converted the various datasets into dataframes and then created corresponding csv files for each.
+
+•	For the sqlite database(All the news 1.0) we used pd.read_sql_query() method to convert it to a dataframe
+
+•	For the json files in news category dataset, we used pd.read_json() method and then concatenated all the dataframes into one prior to saving them as csv files.
+
+### 4. Data enrichment
+
+Primarily, we enrich our data by obtaining certain metrics from the current data.
+
+•	For each news headline and article_summary, we intend to use LLMs to obtain the corresponding sentiment and emotion exhibited. 
+
+o	The sentiment can be “positive”,”Negative”, and “Neutral” 
+
+o	The emotion can belong to one of 6 classes namely anger, sadness, joy, surprise, love, and disgust
+
+o	The headline results are stored in new columns called “headline_emotion” and “headline_sentiment”
+
+### 5. Data cleaning
+
+•	Null values are handled by dropping the corresponding rows.
+
+•	We only select certain columns such as “date”,”headline”,”article_text”,”author”
+
+•	We utilize our enrichment pipeline to obtain other metrics
+
+•	Column headings are renamed to follow the same naming convention (such as renaming source to news_outlet)
+
+•	Duplicates are dropped. They are identified by looking at the headline column.
+
+•	An ID column is added to make it easier to store and retrieve data down the line. 
+
+•	All the different datasets are merged into one csv file using pandas.
+
+### 9. Computation of meaningful summary statistics
+
+•	Visualization pertaining to count of articles published over time
+
+•	A pie chart with percentage of positive, negative and neutral news items
+
+•	A donut chart indicating total number of articles for each emotion.
+
+•	Interactive capabilities in sunburst
+
+### 11. Around 4-6 (or more) visualizations related to the dataset
+
+•	Ngram(Unigram, Bigram, Trigram) visualizations using bar chart
+
+•	Semantic Networks to understand the topics covered in the dataset
+
+•	Wordmaps
+
+•	ML Model related graphs (Training accuracy vs Testing Accuracy, ROC curve)
+
+•	Subplots for each country
+
+•	Subplots for each News Outlet
+
+•	Temporal analysis of news articles in the dataset
+
+
+
+# Team members
+
+Describe here each group member (netid and name).
+
+- ss4805, Srinivasaraghavan Sundar
+- sg2057, Shruthi Nanditha Ganesh
+- ns1590, Nikitha Sunku
+- np1010,Nikita Patil

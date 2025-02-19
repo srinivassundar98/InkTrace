@@ -1,0 +1,27 @@
+---
+title: "1: Data Sources"
+---
+
+
+News Category Dataset: <https://www.kaggle.com/datasets/rmisra/news-category-dataset>
+The News Category Dataset provides a collection of news articles categorized into different news categories. It includes features such as headline, category, author, and date. This dataset is suitable for various natural language processing and text analysis tasks.
+
+
+All the News 1.0: <https://components.one/datasets/all-the-news-articles-dataset>
+
+The All the News Articles Dataset contains a comprehensive collection of news articles from various sources. It covers a wide range of topics and provides metadata such as headline, publication date, and article content. This dataset is valuable for studying media trends, analyzing content, and conducting research in journalism and related fields.
+
+
+All the News Dataset: <https://components.one/datasets/all-the-news-2-news-articles-datasethttps://components.one/datasets/all-the-news-2-news-articles-dataset>
+
+Description: The All the News 2 News Articles Dataset is an extension of the original dataset, providing additional news articles for analysis. It offers a diverse selection of articles from different sources and categories, enabling comprehensive research and analysis in the field of media studies and journalism.
+
+
+NYTimes Front Page Dataset: <https://www.dropbox.com/scl/fi/pm4c66u0exyj0ihaxr95e/nytimes%20front%20page.csv?rlkey=7mus7otnczy9w9q8wr3bo52ga&e=1&dl=0>
+
+The NYTimes Front Page Dataset contains data from the front page of The New York Times newspaper. It includes metadata such as headline, publication date, and article content. This dataset offers valuable insights into the coverage and editorial choices of one of the leading newspapers in the United States.
+
+
+
+
+

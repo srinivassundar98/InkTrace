@@ -1,0 +1,6 @@
+---
+title: "15: Git commit history"
+---
+
+Attached is a screenshot displaying commits contributed by all team members.
+![Git commit history](Screenshot (303).png)

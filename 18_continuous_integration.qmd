@@ -1,0 +1,66 @@
+---
+title: "18: cont. integration"
+---
+
+
+In our continuous integration setup, detailed within the GitHub Actions workflow, the integration process ensures that updates are efficiently managed and deployed. Upon changes being pushed to the main branch or manually triggered via workflow_dispatch, the workflow initiates by checking out the latest version of our repository and setting up necessary environments and dependencies.
+
+Key steps include setting up the Typst and Python environments, ensuring all dependencies are installed, and managing large files with Git LFS. After preparing the environment, the workflow utilizes Quarto to render and publish our project to GitHub Pages, making the updated content immediately available online. This integration process not only streamlines our updates but also reinforces our commitment to maintaining a robust and accessible web presence.
+
+```yaml
+name: Publish Website
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]  # Ensures it triggers on push to the main branch
+  workflow_call:  # Allows this workflow to be called from other workflows
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Ensures the workflow has permissions to write to the repo
+
+    steps:
+      - name: Check out this repo
+        uses: actions/checkout@v4  # Checks out the current repository
+
+      - name: Setup typst
+        uses: typst-community/setup-typst@v3  # Setup Typst environment
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"  # Setup Python environment
+      - name: Install all necessary packages
+        run: python -m pip install --upgrade pip
+             pip install -r requirements.txt
+             
+
+      - name: Install Git LFS
+        run: |
+          sudo apt-get update
+          sudo apt-get install git-lfs
+          git lfs install
+
+      - name: Pull LFS files
+        run: git lfs pull
+
+      - name: List files in the repository
+        run: ls -lah
+
+      - name: Run the testing script
+        run: pytest 
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2  # Setup Quarto environment
+
+      - name: Render and Publish
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages  # Specifies the publishing target as GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Provides the GitHub token for authentication
+```
+
+* * *

@@ -1,0 +1,102 @@
+---
+title: "9: Summary statistics"
+---
+Histograms of Word and Character Counts
+These histograms reveal the typical lengths of words and characters per segment (likely per article or sentence), showing a concentration in certain ranges. This data can be used to assess the complexity or readability of the content.
+
+## Histogram of Word Counts
+
+This code segment loads text data, calculates word and character counts, and visualizes the distribution of word counts across documents. The histogram of word counts allows us to assess the verbosity or conciseness of the entries in the dataset.
+
+```{python}
+import pandas as pd
+import plotly.express as px
+
+# Load the dataset
+data = pd.read_csv('main.csv')
+
+# Assuming the main text is in a column named 'cleaned'
+# Calculate word count and character count
+data['word_count'] = data['cleaned'].apply(lambda x: len(str(x).split()))
+data['char_count'] = data['cleaned'].apply(lambda x: len(str(x)))
+
+# Plotting histograms using Plotly Express
+fig_word_count = px.histogram(data, x='word_count',
+                              title='Histogram of Word Counts',
+                              labels={'word_count': 'Word Count'},
+                              color_discrete_sequence=['skyblue'],
+                              template='plotly_white',
+                              nbins=30)
+fig_word_count.update_layout(bargap=0)
+fig_word_count.show()
+
+```
+
+## Histogram of Character Counts
+
+This code generates a histogram to visualize the distribution of character counts in the dataset. The visualization helps identify the common length of entries and any outliers, using a clear and concise histogram format.
+
+```{python}
+
+fig_char_count = px.histogram(data, x='char_count',
+                              title='Histogram of Character Counts',
+                              labels={'char_count': 'Character Count'},
+                              color_discrete_sequence=['lightgreen'],
+                              template='plotly_white',
+                              nbins=30)
+fig_char_count.update_layout(bargap=0)
+fig_char_count.show()
+```
+
+POS Tag Frequencies
+Noun and Verb Tags: High frequency of nouns and verbs highlights a descriptive or action-oriented language style in the dataset, which could be pivotal for natural language processing applications like topic modeling or sentiment analysis.
+
+Adjective and Adverb Tags: Lower frequencies suggest a more factual or straightforward reporting style rather than descriptive or evaluative, which might influence the type of content produced.
+
+## Visualization of POS Tag Frequencies
+
+This script loads textual data, utilizes the NLTK library to extract and count Part-of-Speech tags, and generates histograms for each POS tag type to analyze their frequencies. The visualizations offer insights into the linguistic structure of the texts.
+
+```{python}
+import pandas as pd
+import nltk
+from nltk import pos_tag, word_tokenize
+from collections import Counter
+import plotly.express as px
+
+# Ensure necessary resources are downloaded
+nltk.download('averaged_perceptron_tagger')
+nltk.download('punkt')
+
+# Load the dataset
+data = pd.read_csv('main.csv')
+
+def get_pos_tags(texts, tagset='universal'):
+    df_list = []  # List to store each row DataFrame
+    # Iterate over each text item
+    for text in texts:
+        pos_tags = Counter([tag for _, tag in pos_tag(word_tokenize(text), tagset=tagset)])
+        # Create a DataFrame for current text's POS tags and add to list
+        df_list.append(pd.DataFrame([pos_tags]))
+    # Concatenate all DataFrames in the list into a single DataFrame
+    df = pd.concat(df_list, ignore_index=True)
+    df = df.fillna(0).astype(int)
+    return df
+
+# Extract POS tags for the 'cleaned' column
+df_tags = get_pos_tags(data['cleaned'])
+
+# Plotting each POS tag frequency using Plotly
+def plot_pos_histograms(df):
+    for column in df.columns:
+        
+        fig = px.histogram(df, x=column, title=f'Histogram of {column} Tags',
+                           labels={column: f'Count of {column}'}, 
+                           template='plotly_white', nbins=8)
+        fig.update_traces(marker_color='turquoise', marker_line_width=1.5)
+        fig.update_layout(bargap=0)  # Update bargap to 0 for no gaps
+        
+        fig.show()
+
+plot_pos_histograms(df_tags)
+```

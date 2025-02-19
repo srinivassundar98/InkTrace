@@ -1,0 +1,64 @@
+---
+title: "13: interactivity"
+---
+
+Inter-topic Distance Map (Multidimensional Scaling)
+The visualization represents different topics as clusters in a two-dimensional space, showing how topics relate to each other based on the distances between them. Each cluster grouping can help identify overarching themes or categories in the dataset, useful for understanding the diversity of content or for segmenting data for more focused analysis.
+
+# Advanced ML Analytics
+## Topic Modeling
+```{python}
+
+from gensim.parsing.preprocessing import preprocess_string
+from gensim import corpora, models
+import gensim
+import pyLDAvis.gensim_models as gensimvis
+import pyLDAvis
+import pandas as pd
+# Load the dataset
+data = pd.read_csv('main.csv')
+
+# Preprocess the text
+def preprocess(text):
+    return preprocess_string(text)
+
+# Apply preprocessing
+processed_docs = data['cleaned'].map(preprocess)
+
+# Create a dictionary and corpus needed for Topic Modeling
+dictionary = corpora.Dictionary(processed_docs)
+corpus = [dictionary.doc2bow(doc) for doc in processed_docs]
+
+# LDA model
+lda_model = models.LdaModel(corpus, num_topics=5, id2word=dictionary, passes=15, random_state=42)
+
+# Display the topics
+topics = lda_model.print_topics(num_words=5)
+for topic in topics:
+    print(topic)
+
+# Visualize the topics
+pyLDAvis.enable_notebook()
+# Visualize the topics with adjusted size
+lda_display = gensimvis.prepare(lda_model, corpus, dictionary, sort_topics=False, 
+                                plot_opts={'width': 800, 'height': 600})  # Adjust width and height as needed
+pyLDAvis.display(lda_display)
+```
+Sunburst Chart of Sentiment and Emotion
+This sunburst chart provides a hierarchical view of sentiment and emotion classification within your dataset. The inner rings may represent high-level sentiments (like positive, neutral, negative), while the outer rings show specific emotions (joy, anger, fear, etc.). This visualization is beneficial for quickly assessing the emotional tone and variability across the content, aiding in tasks like sentiment analysis or consumer perception studies.
+
+## Emotion Recognition and Sentiment Analysis
+```{python}
+
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+
+# Load the dataset
+data = pd.read_csv('main.csv')
+# Create a sunburst chart with sentiment (inside) and emotion (outside) using Plotly
+fig_sunburst = px.sunburst(data, path=['sentiment', 'emotion'], title='Sunburst Chart of Sentiment and Emotion',
+                           color_continuous_scale='RdBu')
+fig_sunburst.show()
+
+```

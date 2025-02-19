@@ -1,0 +1,101 @@
+{
+  "01_document_sources.qmd": {
+    "01_document_sources.html": "96b02c8c"
+  },
+  "02_automated_retrieval.qmd": {
+    "02_automated_retrieval.html": "98c00b69"
+  },
+  "03_raw_to_tabular.qmd": {
+    "03_raw_to_tabular.html": "56af7e45"
+  },
+  "04_enrichment.qmd": {
+    "04_enrichment.html": "bc67ff4f"
+  },
+  "05_cleaning.qmd": {
+    "05_cleaning.html": "1b8babe4"
+  },
+  "06_test_quality.qmd": {
+    "06_test_quality.html": "0f7562f1"
+  },
+  "07_format_conversion.qmd": {
+    "07_format_conversion.html": "36c32e46"
+  },
+  "08_backup_external_service.qmd": {
+    "08_backup_external_service.html": "24072fb2"
+  },
+  "09_summary_stats.qmd": {
+    "09_summary_stats.html": "5ec27bf3"
+  },
+  "10_statistical_ML.qmd": {
+    "10_statistical_ML.html": "907a73b6"
+  },
+  "11_visualizations.qmd": {
+    "11_visualizations.html": "2952e53d"
+  },
+  "12_webpage.qmd": {
+    "12_webpage.html": "f00c64c2"
+  },
+  "13_interactive.qmd": {
+    "13_interactive.html": "aac06ff9"
+  },
+  "14_poster.qmd": {
+    "14_poster.html": "797aad85"
+  },
+  "15_commit.qmd": {
+    "15_commit.html": "45baa697"
+  },
+  "16_tests.qmd": {
+    "16_tests.html": "e48789d6"
+  },
+  "17_continuous_testing.qmd": {
+    "17_continuous_testing.html": "d78bc37f"
+  },
+  "18_continuous_integration.qmd": {
+    "18_continuous_integration.html": "4ed2454c"
+  },
+  "19_python_package(optional).qmd": {
+    "19_python_package(optional).html": "dedd9eda"
+  },
+  "20_reproducibility.qmd": {
+    "20_reproducibility.html": "556a5e83"
+  },
+  "dw.ipynb": {
+    "dw.html": "8dafe346"
+  },
+  "grams.ipynb": {
+    "grams.html": "81f9112a"
+  },
+  "preprocess.ipynb": {
+    "preprocess.html": "f7cbfd49"
+  },
+  "sa.ipynb": {
+    "sa.html": "b55c78d2"
+  },
+  "ss.ipynb": {
+    "ss.html": "6478e876"
+  },
+  "summary.ipynb": {
+    "summary.html": "783887f6"
+  },
+  "index.qmd": {
+    "index.html": "fc4f6258"
+  },
+  "dw_sentiment_emotion.ipynb": {
+    "dw_sentiment_emotion.html": "d1f875e8"
+  },
+  "dw_ML_analysis.ipynb": {
+    "dw_ML_analysis.html": "76d14886"
+  },
+  "dw_model_training.ipynb": {
+    "dw_model_training.html": "adddb674"
+  },
+  "summary_statistics_analysis.ipynb": {
+    "summary_statistics_analysis.html": "19733be1"
+  },
+  "summary_statistics_visualisations.ipynb": {
+    "summary_statistics_visualisations.html": "dd65368e"
+  },
+  "visualisations.ipynb": {
+    "visualisations.html": "05495313"
+  }
+}

@@ -1,0 +1,417 @@
+---
+title: "12: Webpage"
+format: html
+editor_options: 
+  chunk_output_type: console
+execute:
+  echo: false
+---
+
+## Summarizing Data by Authors
+
+This code snippet identifies missing values in the dataset and summarizes the distribution of publications by authors. It visualizes the results using a Plotly bar graph.
+```{python}
+%%capture
+!pip install nltk
+!pip install gensim
+!pip install pyLDAvis
+
+```
+
+```{python}
+import pandas as pd
+data=pd.read_csv('main.csv')
+# Checking for missing values and summarizing the data by authors
+import plotly.express as px
+
+missing_values = data.isnull().sum()
+author_distribution = data['AUTHOR'].value_counts()
+
+author_distribution
+fig = px.bar(author_distribution, 
+             x=author_distribution.index, 
+             y=author_distribution.values, 
+             labels={'x':'Author', 'y':'Count'},
+             title='Distribution of Publications by Author')
+fig.show()
+```
+## Analyzing Temporal Trends in Article Publications
+
+This code converts the 'DATE' column to datetime format and groups the data by date to count the number of articles. It then plots these counts over time using a line graph to reveal trends.
+
+```{python}
+import plotly.express as px
+# Convert the 'DATE' column to datetime format
+data['DATE'] = pd.to_datetime(data['DATE'])
+
+# Group by Date and count the number of articles
+date_counts = data.groupby('DATE').size().reset_index(name='counts')
+
+# Plotting using Plotly
+fig = px.line(date_counts, x='DATE', y='counts', title='Temporal Trends of Articles', labels={'counts': 'Number of Articles'})
+fig.update_layout(xaxis_title='Date', yaxis_title='Number of Articles')
+fig.show()
+
+```
+
+
+## Monthly Publication Trends by Author
+
+This code segments the dataset by month and author, creating a stacked bar chart to visualize the number of articles published by each author over time. It effectively illustrates trends and contributions by individual authors.
+
+```{python}
+
+# Group by both Date and Author
+import pandas as pd
+import plotly.graph_objects as go
+
+# Load the dataset and prepare it
+data = pd.read_csv('main.csv')
+data['DATE'] = pd.to_datetime(data['DATE'])
+
+# Resample data to monthly frequency
+data['MONTH'] = data['DATE'].dt.to_period('M')
+
+# Group by both Month and Author
+author_month_counts = data.groupby(['MONTH', 'AUTHOR']).size().unstack(fill_value=0)
+
+# Create the figure using Plotly
+fig = go.Figure()
+for author in author_month_counts.columns:
+    fig.add_trace(go.Bar(x=author_month_counts.index.astype(str), y=author_month_counts[author], name=author))
+
+fig.update_layout(
+    barmode='stack',
+    title='Number of Articles by Author (Monthly)',
+    xaxis_title='Month',
+    yaxis_title='Number of Articles',
+    xaxis={'type': 'category'},  # Change this to 'category' to handle the period index as categorical
+    legend_title='Author',
+    legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+)
+fig.show()
+
+```
+
+```{python}
+import pandas as pd
+from sklearn.feature_extraction.text import CountVectorizer
+import plotly.express as px
+import string
+
+# Load the dataset
+data = pd.read_csv('main.csv')
+
+# Function to clean and prepare text
+def clean_text(text):
+    # Convert to lower case and remove punctuation
+    text = text.lower()
+    text = text.translate(str.maketrans('', '', string.punctuation))
+    return text
+
+# Apply text cleaning
+data['cleaned'] = data['cleaned'].apply(clean_text)
+
+# Function to create n-gram frequency plot
+def plot_ngrams(n, max_features=26):
+    # Create CountVectorizer object for n-grams
+    vectorizer = CountVectorizer(ngram_range=(n, n), stop_words='english', max_features=max_features)
+    
+    # Fit and transform the data
+    ngrams = vectorizer.fit_transform(data['cleaned'])
+    
+    # Sum up their counts and get feature names
+    sum_ngrams = ngrams.sum(axis=0) 
+    ngrams_freq = [(word, sum_ngrams[0, idx]) for word, idx in vectorizer.vocabulary_.items()]
+    
+    # Sort n-grams by frequency
+    ngrams_freq = sorted(ngrams_freq, key=lambda x: x[1], reverse=True)
+    words, freqs = zip(*ngrams_freq)
+    
+    # Create a DataFrame
+    df_ngrams = pd.DataFrame({'N-gram': words[1:], 'Frequency': freqs[1:]})
+    
+    # Plot using Plotly
+    if n==1:
+        grams='Uni'
+    elif n==2:
+        grams='Bi'
+    elif n==3:
+        grams='Tri'
+    elif n==4:
+        grams='Quad'
+    fig = px.bar(df_ngrams, x='N-gram', y='Frequency', title=f'Top {25} {grams}-grams', 
+                 template='plotly_dark', color='Frequency', color_continuous_scale=px.colors.sequential.Viridis)
+    fig.show()
+
+# Plot unigrams, bigrams, and trigrams
+```
+
+
+## Unigrams
+
+```{python}
+plot_ngrams(1)
+
+
+```
+## Bigrams
+```{python}
+plot_ngrams(2)
+
+
+```
+## Trigrams
+```{python}
+plot_ngrams(3)
+
+```
+## Quadgrams
+```{python}
+plot_ngrams(4)
+```
+
+## Histogram of Word Counts
+
+This code segment loads text data, calculates word and character counts, and visualizes the distribution of word counts across documents. The histogram of word counts allows us to assess the verbosity or conciseness of the entries in the dataset.
+
+```{python}
+import pandas as pd
+import plotly.express as px
+
+# Load the dataset
+data = pd.read_csv('main.csv')
+
+# Assuming the main text is in a column named 'cleaned'
+# Calculate word count and character count
+data['word_count'] = data['cleaned'].apply(lambda x: len(str(x).split()))
+data['char_count'] = data['cleaned'].apply(lambda x: len(str(x)))
+
+# Plotting histograms using Plotly Express
+fig_word_count = px.histogram(data, x='word_count',
+                              title='Histogram of Word Counts',
+                              labels={'word_count': 'Word Count'},
+                              color_discrete_sequence=['skyblue'],
+                              template='plotly_white',
+                              nbins=30)
+fig_word_count.update_layout(bargap=0)
+fig_word_count.show()
+
+```
+
+## Histogram of Character Counts
+
+This code generates a histogram to visualize the distribution of character counts in the dataset. The visualization helps identify the common length of entries and any outliers, using a clear and concise histogram format.
+
+```{python}
+
+fig_char_count = px.histogram(data, x='char_count',
+                              title='Histogram of Character Counts',
+                              labels={'char_count': 'Character Count'},
+                              color_discrete_sequence=['lightgreen'],
+                              template='plotly_white',
+                              nbins=30)
+fig_char_count.update_layout(bargap=0)
+fig_char_count.show()
+```
+
+## Visualization of POS Tag Frequencies
+
+This script loads textual data, utilizes the NLTK library to extract and count Part-of-Speech tags, and generates histograms for each POS tag type to analyze their frequencies. The visualizations offer insights into the linguistic structure of the texts.
+```{python}
+import pandas as pd
+import nltk
+from nltk import pos_tag, word_tokenize
+from collections import Counter
+import plotly.express as px
+
+# Ensure necessary resources are downloaded
+nltk.download('averaged_perceptron_tagger')
+nltk.download('punkt')
+nltk.download('universal_tagset')
+
+# Load the dataset
+data = pd.read_csv('main.csv')
+
+def get_pos_tags(texts, tagset='universal'):
+    df_list = []  # List to store each row DataFrame
+    # Iterate over each text item
+    for text in texts:
+        pos_tags = Counter([tag for _, tag in pos_tag(word_tokenize(text), tagset=tagset)])
+        # Create a DataFrame for current text's POS tags and add to list
+        df_list.append(pd.DataFrame([pos_tags]))
+    # Concatenate all DataFrames in the list into a single DataFrame
+    df = pd.concat(df_list, ignore_index=True)
+    df = df.fillna(0).astype(int)
+    return df
+
+# Extract POS tags for the 'cleaned' column
+df_tags = get_pos_tags(data['cleaned'])
+
+# Plotting each POS tag frequency using Plotly
+def plot_pos_histograms(df):
+    for column in df.columns:
+        
+        fig = px.histogram(df, x=column, title=f'Histogram of {column} Tags',
+                           labels={column: f'Count of {column}'}, 
+                           template='plotly_white', nbins=8)
+        fig.update_traces(marker_color='turquoise', marker_line_width=1.5)
+        fig.update_layout(bargap=0)  # Update bargap to 0 for no gaps
+        
+        fig.show()
+
+plot_pos_histograms(df_tags)
+```
+## Normal Distribution to Title Lengths
+
+This code calculates the normal distribution based on title lengths and overlays this distribution on a histogram of actual title lengths. This visualization helps assess the normality of title length distribution in the dataset.
+
+```{python}
+import matplotlib.pyplot as plt
+
+data['title_length'] = data['TITLE'].apply(len)
+
+# Calculate mean and standard deviation again for title lengths
+mean_title_length = data['title_length'].mean()
+std_title_length = data['title_length'].std()
+mean_title_length,std_title_length
+# Create a range of values for x (title length) and calculate the normal distribution manually
+import numpy as np
+x_normal = np.linspace(data['title_length'].min(), data['title_length'].max(), 100)
+p_normal = (1 / (std_title_length * np.sqrt(2 * np.pi))) * np.exp(-0.5 * ((x_normal - mean_title_length) / std_title_length) ** 2)
+
+# Plot the histogram and the normal distribution curve manually
+plt.figure(figsize=(10, 6))
+plt.hist(data['title_length'], bins=30, density=True, alpha=0.6, color='grey')
+plt.plot(x_normal, p_normal, 'r', linewidth=2)
+plt.title('Normal Distribution Fit for Title Lengths')
+plt.xlabel('Title Length (number of characters)')
+plt.ylabel('Density')
+plt.grid(True)
+plt.show()
+```
+# Advanced ML Analytics
+## Topic Modeling
+```{python}
+
+from gensim.parsing.preprocessing import preprocess_string
+from gensim import corpora, models
+import gensim
+import pyLDAvis.gensim_models as gensimvis
+import pyLDAvis
+
+# Load the dataset
+
+# Preprocess the text
+def preprocess(text):
+    return preprocess_string(text)
+
+# Apply preprocessing
+processed_docs = data['cleaned'].map(preprocess)
+
+# Create a dictionary and corpus needed for Topic Modeling
+dictionary = corpora.Dictionary(processed_docs)
+corpus = [dictionary.doc2bow(doc) for doc in processed_docs]
+
+# LDA model
+lda_model = models.LdaModel(corpus, num_topics=5, id2word=dictionary, passes=15, random_state=42)
+
+# Display the topics
+topics = lda_model.print_topics(num_words=5)
+for topic in topics:
+    print(topic)
+
+# Visualize the topics
+pyLDAvis.enable_notebook()
+# Visualize the topics with adjusted size
+lda_display = gensimvis.prepare(lda_model, corpus, dictionary, sort_topics=False, 
+                                plot_opts={'width': 800, 'height': 600})  # Adjust width and height as needed
+pyLDAvis.display(lda_display)
+```
+## Emotion Recognition and Sentiment Analysis
+```{python}
+
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+
+# Load the dataset
+data = pd.read_csv('main.csv')
+
+# Create a bar graph for emotions using Plotly
+emotion_counts = data['emotion'].value_counts().reset_index()
+emotion_counts.columns = ['emotion', 'count']
+fig_bar = px.bar(emotion_counts, x='emotion', y='count', title='Distribution of Emotions',
+                 labels={'count': 'Count', 'emotion': 'Emotion'}, color='emotion',
+                 color_continuous_scale=px.colors.sequential.Viridis)
+fig_bar.update_layout(xaxis_title='Emotion', yaxis_title='Count', showlegend=False)
+fig_bar.show()
+
+# Create a donut chart for sentiment using Plotly
+sentiment_counts = data['sentiment'].value_counts().reset_index()
+sentiment_counts.columns = ['sentiment', 'count']
+fig_donut = px.pie(sentiment_counts, values='count', names='sentiment', title='Distribution of Sentiments',
+                   hole=0.4, color='sentiment', color_discrete_sequence=px.colors.sequential.RdBu)
+fig_donut.update_traces(textposition='inside', textinfo='percent+label')
+fig_donut.show()
+
+# Create a sunburst chart with sentiment (inside) and emotion (outside) using Plotly
+fig_sunburst = px.sunburst(data, path=['sentiment', 'emotion'], title='Sunburst Chart of Sentiment and Emotion',
+                           color_continuous_scale='RdBu')
+fig_sunburst.show()
+
+```
+
+```{python}
+import pandas as pd
+import plotly.express as px
+
+# Load the dataset
+data = pd.read_csv('main.csv')
+
+# Histogram of Sentiment Confidence Values
+fig_hist_sentiment = px.histogram(data, x='sentiment_score', color='sentiment',
+                                  title='Distribution of Sentiment Confidence Scores',
+                                  labels={'sentiment_score': 'Confidence Score'},
+                                  opacity=0.8)
+fig_hist_sentiment.show()
+
+# Scatter Plot of Sentiment vs Emotion Confidence
+fig_scatter = px.scatter(data, x='sentiment_score', y='emotion_score', color='sentiment',
+                         title='Relationship between Sentiment and Emotion Confidence Scores',
+                         labels={'sentiment_score': 'Sentiment Confidence', 'emotion_score': 'Emotion Confidence'})
+fig_scatter.show()
+
+# Box Plot for Emotion Confidence by Emotion Category
+fig_box = px.box(data, x='emotion', y='emotion_score', color='emotion',
+                 title='Confidence Scores Distribution for Each Emotion',
+                 labels={'emotion_score': 'Emotion Confidence', 'emotion': 'Emotion'})
+fig_box.update_traces(quartilemethod="inclusive")  # or "exclusive", depending on how you want to calculate quartiles
+fig_box.show()
+
+```
+
+## Word Cloud For All Headlines
+![Frequently Occuring Words in all News Headlines](tfidf_unigram_wordcloud.png)
+
+## Word Cloud For Positive Headlines 
+![Frequently Occuring Words in positive sentiment News Headlines](tfidf_1gram_positive_wordcloud.png)
+
+## Word Cloud For Negative Headlines 
+![Frequently Occuring Words in negative sentiment News Headlines](tfidf_1gram_negative_wordcloud.png)
+
+## Word Cloud For Neutral Headlines 
+![Frequently Occuring Words in neutral sentiment News Headlines](tfidf_1gram_neutral_wordcloud.png)
+
+# Deep Learning Classifier
+## Model Plot
+![Model Plot](model_plot.png)
+
+## Model Loss
+![Model Training and Validation Loss](loss.jpg)
+
+## Model Accuracy
+![Model Training and Validation Accuracy](acc.jpg)
+
+## Prediction Matrix
+![Model Training and Validation Accuracy](confusionmat.jpg)

@@ -1,0 +1,40 @@
+---
+title: "7: Backup in several formats"
+---
+
+In this script, we demonstrate a comprehensive approach to backing up data in multiple formats to ensure robustness and redundancy. The process begins by loading data from a CSV file into a pandas DataFrame, which serves as a versatile data structure for manipulation and analysis. Subsequently, this DataFrame is persisted to an SQLite database, offering a compact, reliable storage format ideal for applications requiring local data storage with relational management capabilities.
+
+Additionally, the data is saved in a line-delimited JSON format, providing a human-readable and easily transportable format that's particularly useful for web applications and data interchange. Both the SQLite database file and the JSON file are then compressed into a ZIP archive using LZMA compression, which offers a high compression ratio, effectively reducing storage space and facilitating easier file management and transfer.
+
+Finally, the original SQLite and JSON files are removed from the filesystem to conserve space and maintain data integrity within the zip archive. This process highlights a methodical approach to data backup that can be adapted for various data persistence and backup strategies, ensuring data durability and accessibility across different platforms and environments.
+
+```python
+import pandas as pd
+import sqlite3
+import os
+import json
+import zipfile
+
+# Step 1: Load CSV file into DataFrame
+df = pd.read_csv('main.csv')
+
+# Step 2: Save DataFrame to SQLite database
+conn = sqlite3.connect('main.db')
+df.to_sql('data', conn, if_exists='replace', index=False)
+conn.close()
+
+# Step 3: Save DataFrame to JSON file
+df.to_json('main.json', orient='records', lines=True)
+
+# Step 4: Zip the SQLite database and JSON file
+with zipfile.ZipFile('data_backup.zip', 'w', compression=zipfile.ZIP_LZMA) as zipf:
+    zipf.write('main.db')
+    zipf.write('main.json')
+
+# Step 5: Delete the original SQLite and JSON files
+os.remove('main.db')
+os.remove('main.json')
+
+print("Backup completed and original files removed.")
+```
+* * *

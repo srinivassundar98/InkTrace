@@ -1,0 +1,166 @@
+---
+title: "11: Visualizations"
+---
+Distribution of Publications by Author:
+This bar graph indicates a relatively even distribution of article publications among various authors, with some slight variations. Authors like Field Level Media and The Associated Press appear to be the most prolific, suggesting their dominant role in content creation within the dataset. This can imply a significant influence of these entities on the media landscape covered in the study.
+```{python}
+import pandas as pd
+data=pd.read_csv('main.csv')
+# Checking for missing values and summarizing the data by authors
+import plotly.express as px
+
+missing_values = data.isnull().sum()
+author_distribution = data['AUTHOR'].value_counts()
+
+author_distribution
+fig = px.bar(author_distribution, 
+             x=author_distribution.index, 
+             y=author_distribution.values, 
+             labels={'x':'Author', 'y':'Count'},
+             title='Distribution of Publications by Author')
+fig.show()
+```
+Analyzing Temporal Trends in Article Publications:
+The line graph shows the number of articles published over time, highlighting noticeable spikes and troughs. These peaks may correspond to major news events or seasonal coverage spikes, suggesting a reactive nature of publications to current events. The data visualization effectively captures the dynamic nature of news cycles, offering insights into how external events drive media output
+## Analyzing Temporal Trends in Article Publications
+
+This code converts the 'DATE' column to datetime format and groups the data by date to count the number of articles. It then plots these counts over time using a line graph to reveal trends.
+
+```{python}
+import plotly.express as px
+# Convert the 'DATE' column to datetime format
+data['DATE'] = pd.to_datetime(data['DATE'])
+
+# Group by Date and count the number of articles
+date_counts = data.groupby('DATE').size().reset_index(name='counts')
+
+# Plotting using Plotly
+fig = px.line(date_counts, x='DATE', y='counts', title='Temporal Trends of Articles', labels={'counts': 'Number of Articles'})
+fig.update_layout(xaxis_title='Date', yaxis_title='Number of Articles')
+fig.show()
+
+```
+
+## Monthly Publication Trends by Author
+
+This code segments the dataset by month and author, creating a stacked bar chart to visualize the number of articles published by each author over time. It effectively illustrates trends and contributions by individual authors.
+
+```{python}
+
+# Group by both Date and Author
+import pandas as pd
+import plotly.graph_objects as go
+
+# Load the dataset and prepare it
+data = pd.read_csv('main.csv')
+data['DATE'] = pd.to_datetime(data['DATE'])
+
+# Resample data to monthly frequency
+data['MONTH'] = data['DATE'].dt.to_period('M')
+
+# Group by both Month and Author
+author_month_counts = data.groupby(['MONTH', 'AUTHOR']).size().unstack(fill_value=0)
+
+# Create the figure using Plotly
+fig = go.Figure()
+for author in author_month_counts.columns:
+    fig.add_trace(go.Bar(x=author_month_counts.index.astype(str), y=author_month_counts[author], name=author))
+
+fig.update_layout(
+    barmode='stack',
+    title='Number of Articles by Author (Monthly)',
+    xaxis_title='Month',
+    yaxis_title='Number of Articles',
+    xaxis={'type': 'category'},  # Change this to 'category' to handle the period index as categorical
+    legend_title='Author',
+    legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+)
+fig.show()
+
+```
+
+N-grams Analysis (Unigrams, Bigrams, Trigrams, Quadgrams)
+Unigrams: Most frequently occurring words like "trump," "new," and "people" suggest a focus on political figures and general news content. This might indicate prevalent themes in the data or common topics of interest.
+
+Bigrams and Trigrams: Sequences such as "Donald Trump," "White House," and "episode people Wednesday" show common phrases that likely relate to specific events or recurring topics, useful for understanding contextual trends.
+
+Quadgrams: More complex phrases like "president Donald Trump said" and "secretary state Rex Tillerson" point towards specific news narratives, helping identify detailed storylines or recurring news frameworks.
+
+
+```{python}
+import pandas as pd
+from sklearn.feature_extraction.text import CountVectorizer
+import plotly.express as px
+import string
+
+# Load the dataset
+data = pd.read_csv('main.csv')
+
+# Function to clean and prepare text
+def clean_text(text):
+    # Convert to lower case and remove punctuation
+    text = text.lower()
+    text = text.translate(str.maketrans('', '', string.punctuation))
+    return text
+
+# Apply text cleaning
+data['cleaned'] = data['cleaned'].apply(clean_text)
+
+# Function to create n-gram frequency plot
+def plot_ngrams(n, max_features=26):
+    # Create CountVectorizer object for n-grams
+    vectorizer = CountVectorizer(ngram_range=(n, n), stop_words='english', max_features=max_features)
+    
+    # Fit and transform the data
+    ngrams = vectorizer.fit_transform(data['cleaned'])
+    
+    # Sum up their counts and get feature names
+    sum_ngrams = ngrams.sum(axis=0) 
+    ngrams_freq = [(word, sum_ngrams[0, idx]) for word, idx in vectorizer.vocabulary_.items()]
+    
+    # Sort n-grams by frequency
+    ngrams_freq = sorted(ngrams_freq, key=lambda x: x[1], reverse=True)
+    words, freqs = zip(*ngrams_freq)
+    
+    # Create a DataFrame
+    df_ngrams = pd.DataFrame({'N-gram': words[1:], 'Frequency': freqs[1:]})
+    
+    # Plot using Plotly
+    if n==1:
+        grams='Uni'
+    elif n==2:
+        grams='Bi'
+    elif n==3:
+        grams='Tri'
+    elif n==4:
+        grams='Quad'
+    fig = px.bar(df_ngrams, x='N-gram', y='Frequency', title=f'Top {25} {grams}-grams', 
+                 template='plotly_dark', color='Frequency', color_continuous_scale=px.colors.sequential.Viridis)
+    fig.show()
+
+# Plot unigrams, bigrams, and trigrams
+```
+
+
+## Unigrams
+
+```{python}
+plot_ngrams(1)
+
+
+```
+## Bigrams
+```{python}
+plot_ngrams(2)
+
+
+```
+## Trigrams
+```{python}
+plot_ngrams(3)
+
+```
+## Quadgrams
+```{python}
+plot_ngrams(4)
+```
